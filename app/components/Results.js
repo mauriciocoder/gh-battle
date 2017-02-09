@@ -3,8 +3,6 @@ var PropTypes = React.PropTypes;
 var PlayersDetails = require("./PlayersDetails");
 
 var Results = function(props) {
-  console.log("Render do REsults");
-  console.log(props.scores);
   if (props.isLoading === true) {
     return (<div>LOADING...</div>);
   }

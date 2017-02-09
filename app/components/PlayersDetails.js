@@ -1,21 +1,21 @@
 var React = require("react");
 var PropTypes = React.PropTypes;
 
-var PlayersDetails = function(props) {
-  var scores = [];
+var Scores = function(props) {
   if (props.scores !== undefined) {
-    scores = props.scores;    
+    return (<tr><td><strong>Score:{props.scores[0]}</strong></td><td><strong>Score:{props.scores[1]}</strong></td></tr>);
   }
+  return (<tr></tr>);
+}
+
+var PlayersDetails = function(props) {
   return (
     <table>
       <tr>
         <th>Player One</th>
         <th>Player Two</th>
       </tr>
-      <tr>
-        <td>Score: {scores[0]}</td>
-        <td>Score: {scores[1]}</td>
-      </tr>
+      <Scores scores={props.scores}/>
       <tr>
         <td><img src={props.playerOne.avatar_url}/></td>
         <td><img src={props.playerTwo.avatar_url}/></td>
