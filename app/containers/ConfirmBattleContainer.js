@@ -3,10 +3,8 @@ var ConfirmBattle = require("../components/ConfirmBattle");
 var GitHubUtil = require("../utils/GitHubUtil");
 
 var ConfirmBattleContainer = React.createClass({
-  contextTypes: function() {
-    return ({
-      router: React.PropTypes.object.isRequired
-    });
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
   },
 
   getInitialState: function() {

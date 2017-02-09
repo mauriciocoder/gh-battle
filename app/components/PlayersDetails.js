@@ -2,6 +2,10 @@ var React = require("react");
 var PropTypes = React.PropTypes;
 
 var PlayersDetails = function(props) {
+  var scores = [];
+  if (props.scores !== undefined) {
+    scores = props.scores;    
+  }
   return (
     <table>
       <tr>
@@ -9,8 +13,8 @@ var PlayersDetails = function(props) {
         <th>Player Two</th>
       </tr>
       <tr>
-        <td>Score</td>
-        <td>Score</td>
+        <td>Score: {scores[0]}</td>
+        <td>Score: {scores[1]}</td>
       </tr>
       <tr>
         <td><img src={props.playerOne.avatar_url}/></td>
@@ -47,7 +51,8 @@ var PlayersDetails = function(props) {
 
 PlayersDetails.PropTypes = {
   playerOne: PropTypes.object.isRequired,
-  playerTwo: PropTypes.object.isRequired
+  playerTwo: PropTypes.object.isRequired,
+  scores: PropTypes.array
 }
 
 module.exports = PlayersDetails;
