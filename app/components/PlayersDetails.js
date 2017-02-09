@@ -1,9 +1,39 @@
 var React = require("react");
 var PropTypes = React.PropTypes;
 
+var FinalResult = function(props) {
+  if (props.scores !== undefined) {
+    var playerOneScore = props.scores[0];
+    var playerTwoScore = props.scores[1];
+    var result = {};
+    if (playerOneScore > playerTwoScore) {
+      result.playerOne = "Winner";
+      result.playerTwo = "Loser";
+    } else if (playerOneScore < playerTwoScore) {
+      result.playerOne = "Loser";
+      result.playerTwo = "Winner";
+    } else {
+      result.playerOne = "Tie";
+      result.playerTwo = "Tie";
+    }
+    return (
+    <tr>
+      <td><strong>{result.playerOne}</strong></td>
+      <td><strong>{result.playerTwo}</strong></td>
+    </tr>
+    );
+  }
+  return (<tr></tr>);  
+}
+
 var Scores = function(props) {
   if (props.scores !== undefined) {
-    return (<tr><td><strong>Score:{props.scores[0]}</strong></td><td><strong>Score:{props.scores[1]}</strong></td></tr>);
+    return (
+        <tr>
+          <td><strong>Score:{props.scores[0]}</strong></td>
+          <td><strong>Score:{props.scores[1]}</strong></td>
+        </tr>
+    );
   }
   return (<tr></tr>);
 }
@@ -15,6 +45,7 @@ var PlayersDetails = function(props) {
         <th>Player One</th>
         <th>Player Two</th>
       </tr>
+      <FinalResult scores={props.scores}/>
       <Scores scores={props.scores}/>
       <tr>
         <td><img src={props.playerOne.avatar_url}/></td>
