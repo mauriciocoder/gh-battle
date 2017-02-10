@@ -1,5 +1,6 @@
 var React = require("react");
 var PropTypes = React.PropTypes;
+var UserImage = require("../styles/index").UserImage;
 
 var FinalResult = function(props) {
   if (props.scores !== undefined) {
@@ -48,8 +49,8 @@ var PlayersDetails = function(props) {
       <FinalResult scores={props.scores}/>
       <Scores scores={props.scores}/>
       <tr>
-        <td><img src={props.playerOne.avatar_url}/></td>
-        <td><img src={props.playerTwo.avatar_url}/></td>
+        <td><img style={UserImage} src={props.playerOne.avatar_url}/></td>
+        <td><img style={UserImage} src={props.playerTwo.avatar_url}/></td>
       </tr>
       <tr>
         <td>Name: {props.playerOne.name}</td>

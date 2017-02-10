@@ -2,6 +2,7 @@ var React = require("react");
 var PropTypes = React.PropTypes;
 var Link = require("react-router").Link;
 var PlayersDetails = require("./PlayersDetails");
+var ResetPlayers = require("./ResetPlayers");
 
 function ConfirmBattle(props) {
   if (props.isLoading === true) {
@@ -11,7 +12,7 @@ function ConfirmBattle(props) {
       <div>
         <PlayersDetails playerOne={props.playersInfo[0]} playerTwo={props.playersInfo[1]}/>
         <div><button onClick={props.onInitiateBattle}>Initiate Battle</button></div>
-        <div><Link to="/playerOne"><button>Reset Players</button></Link></div>
+        <ResetPlayers/>
       </div>
     );
   }
